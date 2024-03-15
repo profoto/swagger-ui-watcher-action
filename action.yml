@@ -1,0 +1,20 @@
+# action.yml
+name: 'Swagger UI watcher'
+description: 'Run Swagger UI watcher with GitHub Actions'
+branding:
+    icon: code
+    color: green
+runs:
+  using: 'docker'
+  image: 'docker://shotat/swagger-ui-watcher'
+  args:
+  - ${{ inputs.input }}
+  - '--bundle'
+  - ${{ inputs.output }}
+inputs:
+  input:
+    description: Swagger file
+    required: true
+  output:
+    description: resulting merged file (json)
+    required: true
